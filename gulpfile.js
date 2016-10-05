@@ -7,6 +7,7 @@ var path = require('path');
 var plumber = require('gulp-plumber');
 var runSequence = require('run-sequence');
 var jshint = require('gulp-jshint');
+var templateCache = require('gulp-angular-templatecache');
 
 /**
  * File patterns
@@ -30,6 +31,11 @@ var sourceFiles = [
   path.join(sourceDirectory, '/**/*.js')
 ];
 
+var htmlFiles = [
+  './src/ng-firebase-locale/templates/**/*.html',
+  './src/ng-firebase-locale/templates/*.html'
+];
+
 var lintFiles = [
   'gulpfile.js',
   // Karma configuration
@@ -50,13 +56,15 @@ gulp.task('build', function() {
  * Process
  */
 gulp.task('process-all', function (done) {
-  runSequence('jshint', 'test-src', 'build', done);
+  runSequence('jshint', 'test-src', 'templates', 'build', done);
 });
 
 /**
  * Watch task
  */
 gulp.task('watch', function () {
+
+  gulp.watch(htmlFiles, ['templates']);
 
   // Watch JavaScript files
   gulp.watch(sourceFiles, ['process-all']);
@@ -108,4 +116,12 @@ gulp.task('test-dist-minified', function (done) {
 
 gulp.task('default', function () {
   runSequence('process-all', 'watch');
+});
+
+gulp.task('templates', function() {
+  return gulp.src(htmlFiles)
+    .pipe(templateCache('ngFLTemplates.js', {
+      module: 'ngFirebaseLocale.templates'
+    }))
+    .pipe(gulp.dest('src/ng-firebase-locale/templatesCache/'));
 });

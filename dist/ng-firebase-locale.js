@@ -14,12 +14,35 @@
   angular.module('ngFirebaseLocale.directives', []);
   angular.module('ngFirebaseLocale.filters', []);
   angular.module('ngFirebaseLocale.services', []);
+  angular.module('ngFirebaseLocale.templates', []);
   angular.module('ngFirebaseLocale',
       [
           'ngFirebaseLocale.config',
           'ngFirebaseLocale.directives',
           'ngFirebaseLocale.filters',
-          'ngFirebaseLocale.services'
+          'ngFirebaseLocale.services',
+          'ngFirebaseLocale.templates'
       ]);
 
 })(angular);
+
+(function(angular) {
+
+  function ngFirebaseLocaleDirective() {
+    return {
+      restrict: 'AE',
+      replace: true,
+      templateUrl: 'ngFirebaseLocale.html',
+      scope: {
+
+      }
+    };
+  }
+
+  angular
+    .module('ngFirebaseLocale.directives')
+    .directive('ngFirebaseLocale', ngFirebaseLocaleDirective);
+
+})(angular);
+
+angular.module('ngFirebaseLocale.templates').run(['$templateCache', function($templateCache) {$templateCache.put('ngFirebaseLocale.html','<h1>Hello World</h1>\n');}]);

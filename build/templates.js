@@ -1,0 +1,1 @@
+angular.module('ngFirebaseLocaleTemplates', []).run(['$templateCache', function($templateCache) {$templateCache.put('./dist/ngFirebaseLocale.html','Hello\n');}]);

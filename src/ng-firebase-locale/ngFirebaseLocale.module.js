@@ -14,12 +14,14 @@
   angular.module('ngFirebaseLocale.directives', []);
   angular.module('ngFirebaseLocale.filters', []);
   angular.module('ngFirebaseLocale.services', []);
+  angular.module('ngFirebaseLocale.templates', []);
   angular.module('ngFirebaseLocale',
       [
           'ngFirebaseLocale.config',
           'ngFirebaseLocale.directives',
           'ngFirebaseLocale.filters',
-          'ngFirebaseLocale.services'
+          'ngFirebaseLocale.services',
+          'ngFirebaseLocale.templates'
       ]);
 
 })(angular);
