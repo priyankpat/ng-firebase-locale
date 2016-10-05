@@ -1,0 +1,30 @@
+{
+  "generator-angularjs-library": {
+    "props": {
+      "author": {
+        "name": "Priyank Patel",
+        "email": "priyank.patel@uoit.net"
+      },
+      "libraryName": {
+        "original": "ng-firebase-locale",
+        "camelized": "ngFirebaseLocale",
+        "dasherized": "ng-firebase-locale",
+        "slugified": "ng-firebase-locale",
+        "parts": [
+          "ng",
+          "firebase",
+          "locale"
+        ]
+      },
+      "includeModuleDirectives": true,
+      "includeModuleFilters": true,
+      "includeModuleServices": true,
+      "includeAngularModuleResource": false,
+      "includeAngularModuleCookies": false,
+      "includeAngularModuleSanitize": false,
+      "librarySrcDirectory": "src/ng-firebase-locale",
+      "libraryUnitTestDirectory": "test/unit/ng-firebase-locale",
+      "libraryUnitE2eDirectory": "test/e2e/ng-firebase-locale"
+    }
+  }
+}

@@ -1,0 +1,2 @@
+# ng-firebase-locale
+
